@@ -1,10 +1,11 @@
 require "set"
 require "stringio"
-require_relative "afn.rb"
 require "roman-numerals"
 
+require_relative "roman_numerals_transducer.rb"
+
 valid_romans = (1..3999).map { |i| RomanNumerals.to_roman(i) }.to_set
-transducer = RomanNumeralTransducer.new("")
+transducer = RomanNumeralTransducer.new("", true)
 
 symbols = ["I", "V", "X", "L", "C", "D", "M"]
 invalid_accepted = []
