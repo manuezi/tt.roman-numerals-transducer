@@ -5,7 +5,7 @@ require "roman-numerals"
 require_relative "roman_numerals_transducer.rb"
 
 valid_romans = (1..3999).map { |i| RomanNumerals.to_roman(i) }.to_set
-transducer = RomanNumeralTransducer.new("", true)
+transducer = RomanNumeralTransducer.new("")
 
 symbols = ["I", "V", "X", "L", "C", "D", "M"]
 invalid_accepted = []
@@ -18,7 +18,6 @@ invalid_accepted = []
     next if valid_romans.include?(word)
     
     transducer.set_word(word)
-    transducer.instance_variable_set(:@debug_mode, true)
     
     original_stdout = $stdout
     $stdout = StringIO.new
@@ -35,5 +34,5 @@ invalid_accepted = []
   end
 end
 
-puts "Fuzzing complete. Found #{invalid_accepted.size} invalid words accepted:"
-puts invalid_accepted.join(", ")
+puts("Fuzzing complete. Found #{invalid_accepted.size} invalid words accepted:")
+puts(invalid_accepted.join(", "))

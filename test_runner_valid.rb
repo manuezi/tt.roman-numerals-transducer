@@ -6,19 +6,19 @@ transducer = RomanNumeralTransducer.new("")
 errors = 0
 
 (1..3999).each do |expected|
-  romano = RomanNumerals.to_roman(expected)
+  roman = RomanNumerals.to_roman(expected)
   
-  transducer.set_word(romano)
+  transducer.set_word(roman)
   result = transducer.start() 
   
   if result.sum != expected
-    puts "FALHOU: #{romano} | Esperado: #{expected} | Obtido: #{result.sum}"
+    puts("FAILED: #{roman} | Expected: #{expected} | Received: #{result.sum}")
     errors += 1
   end
 end
 
 if errors == 0
-  puts "SUCESSO ABSOLUTO: O Autômato converteu todos os 3999 números corretamente! 🚀"
+  puts("SUCCESS: Automaton converted all 3999 numbers correctly! 🚀")
 else
-  puts "Deu ruim. Tivemos #{errors} erros. Verifique os logs acima."
+  puts("Found #{errors} errors. Verify the logs above.")
 end
