@@ -26,7 +26,6 @@ class RomanNumeralTransducer
       symbol = next_symbol()
       next_state = "sink" # fallback
       output = 0
-      decimal = 0
 
       case [symbol, curr_state]
 
@@ -118,19 +117,15 @@ class RomanNumeralTransducer
 
       # --- FINAL STATE ---
       in ["", valid_state] if valid_state != "sink"
-        puts("Aceito 😀")
-        break
+        return @output_tape
       else
-        puts("Erro")
         return nil
       end
   
-      @output_tape.push(output) if output > 0
+      @output_tape.push(output)
       curr_state = next_state
       @idx += 1
     end
-
-    return @output_tape
   end
 end
 
@@ -140,13 +135,15 @@ if __FILE__ == $0
   
   loop do
     puts("Enter a Roman numeral:")
-    word = gets.chomp
+    word = gets.chomp()
     
     transducer.set_word(word)
     result = transducer.start()
 
     if result != nil
       puts("Result: " + result.sum().to_s)
+    else
+      puts("Invalid input")
     end
   end
 end
