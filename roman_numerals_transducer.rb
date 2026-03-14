@@ -5,7 +5,7 @@ class RomanNumeralTransducer
     @output_tape = []
   end
 
-  def next_symbol
+  def next_symbol()
     if @idx == @word.size()
       return ""
     else
@@ -130,20 +130,20 @@ class RomanNumeralTransducer
 end
 
 if __FILE__ == $0
-  puts("Running automaton in interactive mode...")
+  puts("Rodando o autômato no modo interativo...")
   transducer = RomanNumeralTransducer.new("")
   
   loop do
-    puts("Enter a Roman numeral:")
+    puts("Insira um número romano:")
     word = gets.chomp()
     
     transducer.set_word(word)
     result = transducer.start()
 
     if result != nil
-      puts("Result: " + result.sum().to_s)
+      puts("Resultado: " + result.sum().to_s)
     else
-      puts("Invalid input")
+      puts("Erro: número inválido")
     end
   end
 end
