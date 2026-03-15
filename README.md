@@ -4,7 +4,9 @@ Uma implementação em Ruby de um [transdutor](https://pt.wikipedia.org/wiki/Tra
 
 ## Modelagem
 
-O transdutor é composto por um [AFD](https://pt.wikipedia.org/wiki/Aut%C3%B4mato_finito_determin%C3%ADstico) que aceita um número romano e produz um número decimal.
+O transdutor é composto por um [AFD](https://pt.wikipedia.org/wiki/Aut%C3%B4mato_finito_determin%C3%ADstico) que aceita um número romano e produz uma sequência de números decimais que, quando somados, resultam na sua representação final em decimal.
+
+Além disso, a [máquina de Mealy](https://pt.wikipedia.org/wiki/M%C3%A1quina_de_Mealy) foi utilizada por conta da sua simplicidade.
 
 ### Alfabeto de entrada
 
